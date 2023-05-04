@@ -1,0 +1,71 @@
+query Home {
+  home {
+    id
+    _createdAt
+    _publishedAt
+    pageContent {
+      hasOverlay
+      hasButtons
+      id
+      heading {
+        value
+      }
+      highlightColor {
+        hex
+      }
+      image {
+        ...responsiveImage
+      }
+      overlay {
+        hex
+      }
+      _createdAt
+      _publishedAt
+      buttons {
+        filled
+        id
+        label
+        color {
+          hex
+        }
+      }
+      body {
+        value
+      }
+      _isValid
+      _modelApiKey
+      _seoMetaTags {
+        attributes
+        content
+        tag
+      }
+      _status
+      _updatedAt
+    }
+    _isValid
+    _modelApiKey
+    _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+    _status
+    _updatedAt
+  }
+}
+
+fragment responsiveImage on FileFieldInterface {
+  responsiveImage(imgixParams: { fit: crop, ar: "3:2", sat: -100 }) {
+    alt
+    aspectRatio
+    base64
+    bgColor
+    height
+    sizes
+    src
+    srcSet
+    title
+    webpSrcSet
+    width
+  }
+}
